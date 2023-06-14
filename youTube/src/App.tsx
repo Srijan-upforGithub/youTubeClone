@@ -1,13 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+
+import "./App.css";
+import Home from "./pages/Home";
+import Watch from "./pages/Watch";
 
 function App() {
-
-  return <>
-  
-  </>
-
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/watch/:videoId" element={<Watch />} />
+      </Routes>
+    </>
+  );
 }
 
-export default App
+export default App;
