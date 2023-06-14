@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { Wrapper } from "../styledComponents";
 import { IVideosProps } from "../interfaces";
 import { useNavigate } from "react-router-dom";
+import ChannelImage, { ChannelLogo } from "./ChannelImage";
 interface IHomecardProps{
   item:IVideosProps
 }
@@ -23,12 +24,7 @@ export default function HomeCard(props:IHomecardProps) {
         />
       </Imgdiv>
       <CardText>
-        <ChannelLogo>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFpjuN1i85W0od-sye_ViScBEduvQiedpnpA&usqp=CAU"
-            alt=""
-          />
-        </ChannelLogo>
+      <ChannelImage/>
         <Title>
           <VideoTitle>{snippet.title}</VideoTitle>
           <ChannelName>{snippet.channelTitle}</ChannelName>
@@ -43,18 +39,6 @@ export default function HomeCard(props:IHomecardProps) {
 export const CardText = styled.div`
 display: flex;
 gap: 10px;
-`
-export const ChannelLogo = styled.div`
-    max-width: 35px;
-    height: 35px;
-    object-fit: cover;
-    border-radius: 50%;
-
-    >img{
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-    }
 `
 export const Title = styled.div`
 display: flex;

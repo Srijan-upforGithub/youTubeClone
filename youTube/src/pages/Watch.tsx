@@ -19,11 +19,6 @@ export default function Watch() {
         setVideoLink(`https://www.youtube.com/embed/${vidData[0].id}`)
       }
     },[videoId,vidData])
-    // useEffect(()=>{
-    //   if(vidData.length){
-    //     setVideoLink(`https://www.youtube.com/embed/${vidData[0].id}`)
-    //   }
-    // },[vidData])
   return <>
   <Container>
   <Navbar/>
