@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {fetchVideos} from "../youTubeService/fetchApi"
 import { styled } from 'styled-components';
-import Card from './Homecard';
 import { IVideosProps } from '../interfaces';
 import HomeCard from './Homecard';
 interface ItagProps{
@@ -13,7 +12,7 @@ export default function HomevideoCard(props:ItagProps) {
 
         const {tagName}=props;
     const getFetchVideos = async ()=>{
-        const response = await fetchVideos({choice:tagName})
+        const response = await fetchVideos({q:tagName})
         setVideoInfo(response);
     }
     useEffect(()=>{

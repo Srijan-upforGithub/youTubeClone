@@ -1,10 +1,13 @@
 import { styled } from "styled-components"
 import ChannelImage from "./ChannelImage"
 import SubscribeBtn from "./SubscribeBtn"
+import CommentCard from "./CommentCard"
+import CommentBar from "./CommentBar"
 interface Iprops{
     src:string,
+    videoId:string,
 }
-export default function VideoPlayer({src}:Iprops){
+export default function VideoPlayer({src,videoId}:Iprops){
     return <>
     <WatchSection>
     <IFrame src={src} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></IFrame>
@@ -17,6 +20,8 @@ export default function VideoPlayer({src}:Iprops){
         </div>
         <SubscribeBtn/>
     </VideoDescription>
+    <CommentNo>9978 Comments</CommentNo>
+    <CommentBar videoId={videoId}/>
     </WatchSection>
     </>
 }
@@ -40,4 +45,10 @@ const ChannelName = styled.p`
 const VideoDescription = styled.div`
 display: flex;
 gap: 10px;
+`
+const CommentNo = styled.p`
+margin-block: 40px;
+font-size: 17px;
+font-weight: 600;
+}
 `

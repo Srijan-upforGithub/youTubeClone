@@ -47,12 +47,13 @@ gap: 3px;
 max-width:275px;
 `
 export const VideoTitle = styled.p`
-    font-size: 19px;
+    font-size: 15px;
     font-weight: 600;
 `
 export const ChannelName = styled.p`
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 600;
+    color:rgb(145,145,145);
 `
 export const Imgdiv = styled.div`
 border-radius: 10px;
