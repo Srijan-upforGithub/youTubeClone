@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { VideoTitle } from "./Homecard";
+import { useNavigate } from "react-router-dom";
 interface Iprops{
     info : {
         channelId : string,
@@ -27,15 +28,17 @@ interface Iprops{
         }
         title : string
     } 
+    vId:string
 }
-export default function SmallCard({info}:Iprops) {
+export default function SmallCard({info,vId}:Iprops) {
+    const navigate = useNavigate()
   return (
     <MainBox>
-      <ImgDiv>
+      <ImgDiv onClick={()=>{navigate(`/watch/${vId}`)}}>
         <img src={info.thumbnails.high.url} alt=""/>
       </ImgDiv>
       <InfoBox>
-        <VideoName>{info.title}</VideoName>
+        <VideoName onClick={()=>{navigate(`/watch/${vId}`)}}>{info.title}</VideoName>
         <Channel>{info.channelTitle}</Channel>
         <Channel>423k Views| 6 Months Ago</Channel>
       </InfoBox>

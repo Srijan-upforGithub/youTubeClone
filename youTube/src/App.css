@@ -38,3 +38,10 @@
     display: flex;
     gap: 15px;
 }
+ 
+  .notification>i:hover{
+    padding: 4px;
+    border-radius: 50%;
+    background-color: brown;
+    opacity: 0.5;
+  }

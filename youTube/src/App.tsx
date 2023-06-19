@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Watch from "./pages/Watch";
+import SearchResponse from "./pages/SearchResponse";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/watch/:videoId" element={<Watch />} />
+        <Route path="/search/:query" element={<SearchResponse />} />
       </Routes>
     </>
   );

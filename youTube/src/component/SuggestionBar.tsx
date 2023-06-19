@@ -12,7 +12,8 @@ export default function SuggestionBar({videoId}:IProps) {
   const [suggestionData,setSuggestionData] = useState<IVideosProps[]>([])
   const getSuggentionVideos = async ()=>{
     const response = await fetchVideos({type:"video",id:videoId})
-    console.log(response);
+    setSuggestionData(response);
+    console.log
 }
 useEffect(()=>{
   getSuggentionVideos()
@@ -22,7 +23,7 @@ useEffect(()=>{
       {
         suggestionData.map((item,index)=>{
           return(
-            <SmallCard key={index} info={item.snippet}/>
+            <SmallCard key={index} info={item.snippet} vId={item.id.videoId}/>
           )
         })
       }

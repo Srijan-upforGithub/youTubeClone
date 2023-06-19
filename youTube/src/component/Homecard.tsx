@@ -19,7 +19,7 @@ export default function HomeCard(props:IHomecardProps) {
     <div>
       <Imgdiv onClick={()=>playVideo(id.videoId)}>
         <img
-          src={snippet.thumbnails.default.url}
+          src={snippet.thumbnails.high.url}
           alt=""
         />
       </Imgdiv>

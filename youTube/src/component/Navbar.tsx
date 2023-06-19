@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Wrapper } from "../styledComponents";
 import { useState } from "react";
 import "../App.css"
@@ -6,6 +6,11 @@ const Navbar = () => {
   const [val, setVal] = useState("search");
   function handleOnChange(e) {
     setVal(e.target.value);
+  }
+
+  const navigate = useNavigate()
+  const search = (val:string)=>{
+    navigate(`/search/${val}`)
   }
   return (
     <>
@@ -15,7 +20,7 @@ const Navbar = () => {
         </NavLink>
         <div className="searchbar">
           <input className="search-input" onChange={handleOnChange}/>
-          <div><i className="fa-solid fa-magnifying-glass"></i></div>
+          <div onClick={()=>{search(val)}}><i className="fa-solid fa-magnifying-glass"></i></div>
         </div>
         <div className="notification">
         <i className="fa-solid fa-video"></i>
