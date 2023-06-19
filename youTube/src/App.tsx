@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Watch from "./pages/Watch";
 import SearchResponse from "./pages/SearchResponse";
+import Channel from "./pages/Channel";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/watch/:videoId" element={<Watch />} />
         <Route path="/search/:query" element={<SearchResponse />} />
+        <Route path="/channel/:channelId" element={<Channel />} />
       </Routes>
     </>
   );

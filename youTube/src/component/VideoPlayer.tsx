@@ -20,11 +20,11 @@ export default function VideoPlayer({WatchData,videoId}:Iprops){
     return <>
     <WatchSection>
     <IFrame src={videoLink} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></IFrame>
-    <Title>{WatchData[0].snippet.title}</Title>
+    <Title>{WatchData.length?WatchData[0].snippet.title:""}</Title>
     <VideoDescription>
         <ChannelImage/>
         <div>
-            <ChannelName>{WatchData[0].snippet.channelTitle}</ChannelName>
+            <ChannelName>{WatchData.length?WatchData[0].snippet.channelTitle:""}</ChannelName>
             <p>4.45M Subscribers</p>
         </div>
         <SubscribeBtn/>

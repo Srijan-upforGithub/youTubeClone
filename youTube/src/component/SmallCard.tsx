@@ -39,7 +39,7 @@ export default function SmallCard({info,vId}:Iprops) {
       </ImgDiv>
       <InfoBox>
         <VideoName onClick={()=>{navigate(`/watch/${vId}`)}}>{info.title}</VideoName>
-        <Channel>{info.channelTitle}</Channel>
+        <Channel onClick={()=>{navigate(`/channel/${info.channelId}`)}}>{info.channelTitle}</Channel>
         <Channel>423k Views| 6 Months Ago</Channel>
       </InfoBox>
     </MainBox>

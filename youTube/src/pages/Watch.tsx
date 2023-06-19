@@ -16,7 +16,6 @@ export default function Watch() {
     const getWatchVideo = async ()=>{
       const response = await fetchWatchVideo({id:videoId})
       setVidData(response);
-      console.log(response)
   }
     useEffect(()=>{
       getWatchVideo()
