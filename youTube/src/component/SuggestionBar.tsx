@@ -13,7 +13,6 @@ export default function SuggestionBar({videoId}:IProps) {
   const getSuggentionVideos = async ()=>{
     const response = await fetchVideos({type:"video",id:videoId})
     setSuggestionData(response);
-    console.log
 }
 useEffect(()=>{
   getSuggentionVideos()

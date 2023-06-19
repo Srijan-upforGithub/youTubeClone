@@ -1,5 +1,5 @@
 const BaseUrl ="https://www.googleapis.com/youtube/v3"
-const APIkey = "AIzaSyDz1B49bGLVRHMt6kbVrqTvYtOrHM5bILM"
+const APIkey = "AIzaSyAzPsOPolB90fYbe1jZM3HROI2cOgXnWdo"
 import axios from "axios"
 interface IParams{
     q?:string,

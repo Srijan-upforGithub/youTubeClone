@@ -3,19 +3,28 @@ import ChannelImage from "./ChannelImage"
 import SubscribeBtn from "./SubscribeBtn"
 import CommentCard from "./CommentCard"
 import CommentBar from "./CommentBar"
+import { IWatchProps } from "../interfaces"
+import { useEffect, useState } from "react"
 interface Iprops{
-    src:string,
+    WatchData:IWatchProps[],
     videoId:string,
 }
-export default function VideoPlayer({src,videoId}:Iprops){
+export default function VideoPlayer({WatchData,videoId}:Iprops){
+    const [videoLink,setVideoLink] = useState<string>("")
+    useEffect(()=>{
+        if(WatchData.length){
+          setVideoLink(`https://www.youtube.com/embed/${WatchData[0].id}`)
+        }
+      },[videoId,WatchData])
+
     return <>
     <WatchSection>
-    <IFrame src={src} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></IFrame>
-    <Title>Hanuman Chalisa by Gulshan Kumar</Title>
+    <IFrame src={videoLink} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></IFrame>
+    <Title>{WatchData[0].snippet.title}</Title>
     <VideoDescription>
         <ChannelImage/>
         <div>
-            <ChannelName>Tanmay Bhat</ChannelName>
+            <ChannelName>{WatchData[0].snippet.channelTitle}</ChannelName>
             <p>4.45M Subscribers</p>
         </div>
         <SubscribeBtn/>
@@ -35,7 +44,7 @@ const IFrame = styled.iframe`
     object-fit : cover;
 `
 const Title = styled.h3`
-font-size: 25px;
+font-size: 23px;
 padding-block: 8px;
 `
 const ChannelName = styled.p`

@@ -7,7 +7,6 @@ interface Iprops{
   channel:string,
   image:string,
   videoId:string,
-  
 }
 
 export default function SearchPageCard({title,channel,image,videoId}:Iprops) {

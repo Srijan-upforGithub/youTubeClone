@@ -12,22 +12,20 @@ import { styled } from 'styled-components'
 export default function Watch() {
     const {videoId} = useParams()
     const [vidData,setVidData] = useState<IWatchProps[]>([])
-    const [videoLink,setVideoLink] = useState<string>("")
+  
     const getWatchVideo = async ()=>{
       const response = await fetchWatchVideo({id:videoId})
       setVidData(response);
+      console.log(response)
   }
     useEffect(()=>{
       getWatchVideo()
-      if(vidData.length){
-        setVideoLink(`https://www.youtube.com/embed/${vidData[0].id}`)
-      }
-    },[videoId,vidData])
+    },[videoId])
   return <>
   <Container>
   <Navbar/>
   <SubWrapper>
-  <VideoPlayer src={videoLink} videoId={videoId as string}/>
+  <VideoPlayer WatchData={vidData} videoId={videoId as string}/>
   <SuggestionBar videoId={videoId as string}/>
   </SubWrapper>
   </Container>
