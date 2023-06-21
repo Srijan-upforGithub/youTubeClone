@@ -1,20 +1,28 @@
 import React from "react";
 import SubscribeBtn from "./SubscribeBtn";
 import { styled } from "styled-components";
+import { matchRoutes } from "react-router-dom";
+import { IWatchProps } from "../interfaces";
 
-export default function ChannelCard() {
+interface Iprops{
+  channelimage:string,
+  channelName:string,
+}
+export default function ChannelCard(props:Iprops) {
+ const {channelimage,channelName} = props
+
   return (
     <Box>
       <ChannelDetail>
         <ImgDiv>
           <Img
-            src="https://i.pinimg.com/originals/61/7f/35/617f355d7311f6101d77a947cf397069.jpg"
+            src={channelimage}
             alt=""
           />
         </ImgDiv>
         <div>
-          <Name>SportsTech</Name>
-          <Description>@SportsTech production 25M subscribers 156 videos</Description>
+          <Name>{channelName}</Name>
+          <Description>@{channelName} production {Math.floor(Math.random()*10)}M subscribers</Description>
         </div>
       </ChannelDetail>
       <div>

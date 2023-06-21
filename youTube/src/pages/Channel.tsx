@@ -1,24 +1,40 @@
-import React from 'react'
+import React ,{useEffect,useState} from 'react'
 import { Container } from '../styledComponents'
 import Navbar from '../component/Navbar'
 import ChannelCard from '../component/ChannelCard'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Outlet, useParams } from 'react-router-dom'
 import { styled } from 'styled-components'
+import { fetchCHannelDetails } from '../youTubeService/fetchApi'
+import { IWatchProps } from '../interfaces'
+
 
 export default function Channel() {
+  const {channelId} = useParams()
+  const [channelName,setChannelName] = useState("")
+  const [channelImage,setChannelimage] = useState("")
+ 
+  const getChannelDetails = async () => {
+    const response = await fetchCHannelDetails(channelId as string)
+    setChannelimage(response.snippet.thumbnails.high.url)
+    setChannelName(response.snippet.title)
+  }
+  useEffect(()=>{
+    getChannelDetails()
+  },[channelId])
   return <>
     <Container>
         <Navbar/>
-        <ChannelCard/>
+        <ChannelCard channelimage={channelImage} channelName={channelName}/>
         <ChoiceBar>
             <NavLink to='featured'>Home</NavLink>
-            <NavLink to='Videos'>Videos</NavLink>
+            <NavLink to='videos'>Videos</NavLink>
             <NavLink to='live'>Live</NavLink>
             <NavLink to='Playlists'>Playlists</NavLink>
             <NavLink to='Community'>Community</NavLink>
             <NavLink to='Channels'>Channels</NavLink>
             <NavLink to='About'>About</NavLink>
         </ChoiceBar>
+        <Outlet/>
     </Container>
   </>
 }

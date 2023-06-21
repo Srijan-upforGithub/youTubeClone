@@ -57,7 +57,7 @@ export const ChannelName = styled.p`
 `
 export const Imgdiv = styled.div`
 border-radius: 10px;
-width: 343px;
+width: 300px;
 object-fit: cover;
 
 >img{

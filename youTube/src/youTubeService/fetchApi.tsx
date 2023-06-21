@@ -4,8 +4,8 @@ import axios from "axios"
 interface IParams{
     q?:string,
     id?:string,
-    type?:string
-    
+    type?:string,
+    channelId?:string
 }
 
 export const fetchVideos = async (params:IParams)=>{
@@ -41,4 +41,15 @@ export const fetchComments = async (videoId:string)=>{
     }
     )
     return data.items
+} 
+export const fetchCHannelDetails = async (channelId:string)=>{
+    const {data} = await axios.get(`${BaseUrl}/channels`,
+    {params:{
+        part:"snippet",
+        id:channelId,
+        key:APIkey,
+    }
+    }
+    )
+    return data.items[0]
 } 
