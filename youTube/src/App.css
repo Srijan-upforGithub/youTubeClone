@@ -1,12 +1,13 @@
-.fa-youtube{
+.fa-brands{
     font-size: 35px;
     color: red;
 }
 .logo{
     font-size: 30px;
     text-decoration: none;
-    color: black;
+    color: #000000;
     font-weight: 600;
+    display: flex;
 }
 
 

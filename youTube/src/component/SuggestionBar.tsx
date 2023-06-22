@@ -10,9 +10,11 @@ interface IProps{
 }
 export default function SuggestionBar({videoId}:IProps) {
   const [suggestionData,setSuggestionData] = useState<IVideosProps[]>([])
+  const [pageToken,setPagetoken] = useState("")
   const getSuggentionVideos = async ()=>{
-    const response = await fetchVideos({type:"video",id:videoId})
-    setSuggestionData(response);
+    const response = await fetchVideos({type:"video",id:videoId,pageToken:pageToken})
+    setSuggestionData(response.items);
+    setPagetoken(response.nextPageToken)
 }
 useEffect(()=>{
   getSuggentionVideos()

@@ -23,13 +23,13 @@ export default function Channel() {
   },[channelId])
   return <>
     <Container>
-        <Navbar/>
+        {/* <Navbar/> */}
         <ChannelCard channelimage={channelImage} channelName={channelName}/>
         <ChoiceBar>
             <NavLink to='featured'>Home</NavLink>
             <NavLink to='videos'>Videos</NavLink>
             <NavLink to='live'>Live</NavLink>
-            <NavLink to='Playlists'>Playlists</NavLink>
+            <NavLink to='playlist'>Playlists</NavLink>
             <NavLink to='Community'>Community</NavLink>
             <NavLink to='Channels'>Channels</NavLink>
             <NavLink to='About'>About</NavLink>

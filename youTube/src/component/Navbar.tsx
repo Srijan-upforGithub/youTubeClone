@@ -4,8 +4,8 @@ import { useState } from "react";
 import "../App.css"
 import { styled } from "styled-components";
 export default function Navbar(){
-  const [val, setVal] = useState("search");
-  function handleOnChange(e) {
+  const [val, setVal] = useState("");
+  function handleOnChange(e:React.ChangeEvent<HTMLInputElement>) {
     setVal(e.target.value);
   }
 
@@ -20,7 +20,7 @@ export default function Navbar(){
           <i className="fa-brands fa-youtube"></i>YouTube
         </NavLink>
         <Searchbar>
-          <SearchInput onChange={handleOnChange}/>
+          <SearchInput onChange={handleOnChange} value={val} placeholder="search"/>
           <SearchIcon onClick={()=>{search(val)}}><i className="fa-solid fa-magnifying-glass"></i></SearchIcon>
         </Searchbar>
         <Notification>

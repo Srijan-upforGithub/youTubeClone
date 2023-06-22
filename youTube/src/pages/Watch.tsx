@@ -15,14 +15,15 @@ export default function Watch() {
   
     const getWatchVideo = async ()=>{
       const response = await fetchWatchVideo({id:videoId})
-      setVidData(response);
+      setVidData(response.items);
+      
   }
     useEffect(()=>{
       getWatchVideo()
     },[videoId])
   return <>
   <Container>
-  <Navbar/>
+  {/* <Navbar/> */}
   <SubWrapper>
   <VideoPlayer WatchData={vidData} videoId={videoId as string}/>
   <SuggestionBar videoId={videoId as string}/>

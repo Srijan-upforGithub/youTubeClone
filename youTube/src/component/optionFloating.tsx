@@ -19,7 +19,7 @@ export default function FloatingOption() {
     setTag(name);
   };
   return (
-    <>
+    <div>
       <Wrapper>
         <WrapperIn>
           {Choice.map((item: Iprops, index) => (
@@ -34,15 +34,16 @@ export default function FloatingOption() {
         </WrapperIn>
       </Wrapper>
       <HomevideoCard tagName={tag} />
-    </>
+    </div>
   );
 }
 export const Choices = styled.div`
   color: #fff;
-  padding: 5px 10px;
+  padding: 6px 8px;
   background-color: rgb(48, 52, 50);
   border-radius: 8px;
   cursor:pointer;
+  font-size:15px
 `;
 export const WrapperIn = styled.div`
   margin: 20px 80px;

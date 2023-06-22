@@ -1,11 +1,12 @@
 const BaseUrl ="https://www.googleapis.com/youtube/v3"
-const APIkey = "AIzaSyDz1B49bGLVRHMt6kbVrqTvYtOrHM5bILM"
+const APIkey = "AIzaSyAzPsOPolB90fYbe1jZM3HROI2cOgXnWdo"
 import axios from "axios"
-interface IParams{
+export interface IParams{
     q?:string,
     id?:string,
     type?:string,
-    channelId?:string
+    channelId?:string,
+    pageToken?:string
 }
 
 export const fetchVideos = async (params:IParams)=>{
@@ -18,7 +19,7 @@ export const fetchVideos = async (params:IParams)=>{
     }
     }
     )
-    return data.items
+    return data
 } 
 export const fetchWatchVideo = async (params:IParams)=>{
     const {data} = await axios.get(`${BaseUrl}/videos`,
@@ -29,7 +30,7 @@ export const fetchWatchVideo = async (params:IParams)=>{
     }
     }
     )
-    return data.items
+    return data
 } 
 export const fetchComments = async (videoId:string)=>{
     const {data} = await axios.get(`${BaseUrl}/commentThreads`,
