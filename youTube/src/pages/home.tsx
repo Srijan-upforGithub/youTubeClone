@@ -5,14 +5,18 @@ import HomevideoCard from "../component/HomevideoCard";
 import SearchPageCard from "../component/SearchPageCard";
 import ChannelCard from "../component/ChannelCard";
 import SideBar from "../component/SideBar";
+import { styled } from "styled-components";
 
 export default function Home(){
     return <>
     <Container>
-    <div>
+    <Wrapper>
         <SideBar/>
         <FloatingOption/>
-        </div>    
+        </Wrapper>    
     </Container>
     </>
 }
+const Wrapper = styled.div`
+display:flex;
+`

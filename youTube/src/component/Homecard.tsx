@@ -3,6 +3,7 @@ import { Wrapper } from "../styledComponents";
 import { IVideosProps } from "../interfaces";
 import { useNavigate } from "react-router-dom";
 import ChannelImage, { ChannelLogo } from "./ChannelImage";
+import moment from "moment";
 interface IHomecardProps{
   item:IVideosProps
 }
@@ -13,6 +14,10 @@ export default function HomeCard(props:IHomecardProps) {
   const navigate = useNavigate()
   const playVideo = (videoId:string)=>{
     navigate(`/watch/${videoId}`)
+  }
+  
+  const ToChannel = (channelId:any)=>{
+    navigate(`/channel/${channelId}`)
   }
   return (
     <>
@@ -27,8 +32,8 @@ export default function HomeCard(props:IHomecardProps) {
       <ChannelImage/>
         <Title>
           <VideoTitle>{snippet.title}</VideoTitle>
-          <ChannelName>{snippet.channelTitle}</ChannelName>
-          <p>{snippet.publishedAt}</p>
+          <ChannelName onClick={()=>{navigate(`/channel/${snippet.channelId}`)}}>{snippet.channelTitle}</ChannelName>
+          <p>{moment(snippet.publishedAt).fromNow()}</p>
         </Title>
       </CardText>
       </div>

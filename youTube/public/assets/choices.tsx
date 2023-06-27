@@ -14,5 +14,10 @@ export const Choice  = [
     { id: 12, name: 'Cartoons'},
     { id: 13, name: 'Poetry'},
   ];
-  
+
   export default Choice;
+
+export const VideoOrders = [
+  {id:1, name:'Latest', value:'date'},
+  {id:2, name:'Popular', value:"viewCount"}
+] 

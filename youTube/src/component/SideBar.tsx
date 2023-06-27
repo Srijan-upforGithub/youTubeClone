@@ -15,7 +15,6 @@ export default function SideBar() {
   )
 }
 const IconDiv = styled.div`
-border-bottom: 1px solid silver;
     height: 42px;
     display: flex;
     align-items: center;

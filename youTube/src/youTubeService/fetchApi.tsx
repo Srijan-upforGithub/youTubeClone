@@ -6,7 +6,8 @@ export interface IParams{
     id?:string,
     type?:string,
     channelId?:string,
-    pageToken?:string
+    pageToken?:string,
+    order?:string
 }
 
 export const fetchVideos = async (params:IParams)=>{
